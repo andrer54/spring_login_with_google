@@ -17,10 +17,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                     authorizeConfig -> {
                         authorizeConfig.requestMatchers("/public").permitAll();
+
                         authorizeConfig.anyRequest().authenticated();
                     }
                 )
-                .formLogin(Customizer.withDefaults())
+                .oauth2Login(Customizer.withDefaults())
                 .build();
     }
+    
 }
